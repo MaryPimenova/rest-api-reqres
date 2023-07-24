@@ -83,7 +83,7 @@ Using the link below you can go to the build of the project:
 #### Job in Jenkins: algorithm and autotests results
 1. Open the project from the link above. The screenshot shows the appearance of the project window in Jenkins.
 <p align="center">
-<img title="Jenkins" src="media/screenshots/jenkins_main_page.png">
+<img title="Jenkins_main_page" src="media/screenshots/jenkins_main_page.png">
 </p>
 
 2. Select the item "Collect now" on the left panel
