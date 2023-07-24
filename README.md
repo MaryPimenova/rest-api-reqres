@@ -1,13 +1,16 @@
 > "Testing leads to failure, and failure leads to understanding" - Burt Rutan
-# :woman_technologist:Test automation project for [REQRES]([https://www.mzta.ru/](https://reqres.in/)) service
+# :woman_technologist:Test automation project for [REQRES.IN]([https://www.mzta.ru/](https://reqres.in/)) service
+![WB_logo.jpg](media/logotypes/reqres_logo.png)
 > - The process of automatically testing and verifying the functionality of an application programming interface (API) is known as API automation.
 > - It helps ensure that the API functions as intended and reduces the time and effort spent on manual testing.
 > - API automation is implemented using software tools that send requests to the API, parse the responses, and compare them to the expected results.
 > - The goal of API automation is to increase the reliability and consistency of the testing process, which saves time and resources.
+> - REST API stands for Representational State Transfer API, which is a web standards-based architecture for building web services.
+> - REST API is a common way of communication between clients and servers over the Internet. REST APIs use HTTP requests to manipulate data, such as POST, PUT, GET, and DELETE.
 
 ## 🎀 Table of contents
 - [Tools and technologies](#hammer_and_wrench-tools-and-technologies)
-- [List of implemented tests](#bookmark_tabs-list-of-implemented-tests)
+- [List of implemented API tests](#bookmark_tabs-list-of-implemented-api-tests)
 - [Running autotests from the terminal](#desktop_computer-running-autotests-from-the-terminal)
 - [Build in Jenkins](#-build-in-jenkins)
 - [Allure report](#-allure-report)
@@ -18,40 +21,57 @@
 
 | IntelliJ IDEA | Java | Rest Assured | Allure Report |  Allure TestOps | Gradle | JUnit5 | GitHub | Jenkins| Telegram | Jira |
 |:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|
-| <img width="90%" title="IntelliJ IDEA" src="media/logotypes/Intelij_IDEA.svg"> | <img width="100%" title="Java" src="media/logotypes/Java.svg"> | <img width="90%" title="Rest_Assured" src="media/logotypes/RestAssured.png"> |<img width="100%" title="Allure Report" src="media/logotypes/Allure_Report.svg"> |<img width="60%" title="Allure TestOps" src="media/logotypes/AllureTestOps.svg"> |<img width="90%" title="Gradle" src="media/logotypes/Gradle.svg"> |<img width="90%" title="JUnit5" src="media/logotypes/JUnit5.svg"> |<img width="90%" title="GitHub" src="media/logotypes/GitHub.svg"> |<img width="90%" title="Jenkins" src="media/logotypes/Jenkins.svg"> |<img width="80%" title="Telegram" src="media/logotypes/Telegram.svg">|<img width="85%" title="Jira" src="media/logotypes/Jira.svg">|
+| <img width="90%" title="IntelliJ IDEA" src="media/logotypes/Intelij_IDEA.svg"> | <img width="110%" title="Java" src="media/logotypes/Java.svg"> | <img width="80%" title="Rest_Assured" src="media/logotypes/RestAssured.png"> |<img width="100%" title="Allure Report" src="media/logotypes/Allure_Report.svg"> |<img width="60%" title="Allure TestOps" src="media/logotypes/AllureTestOps.svg"> |<img width="90%" title="Gradle" src="media/logotypes/Gradle.svg"> |<img width="90%" title="JUnit5" src="media/logotypes/JUnit5.svg"> |<img width="90%" title="GitHub" src="media/logotypes/GitHub.svg"> |<img width="90%" title="Jenkins" src="media/logotypes/Jenkins.svg"> |<img width="80%" title="Telegram" src="media/logotypes/Telegram.svg">|<img width="45%" title="Jira" src="media/logotypes/Jira.svg">|
 - To create autotests in this project the <code>[Java](https://www.java.com/)</code> language was used.
 - <code>[Gradle](https://gradle.org/)</code> was used as an automatic build system.  
-- Frameworks <code>[JUnit5](https://junit.org/junit5/)</code> and <code>[Selenide](https://selenide.org/)</code> for automated testing of web applications have been applied.
-- Browsers were launched via <code>[Selenoid](https://aerokube.com/selenoid/)</code>.
+- Framework <code>[JUnit5](https://junit.org/junit5/)</code> for automated unit testing has been applied.
+- The models of the received data are described using the <code>[Lombok](https://mvnrepository.com/artifact/org.projectlombok/lombok)</code> library.
+- API testing is done using the <code>[Rest Assured](https://rest-assured.io/)</code> library. This library helps identify and fix bugs and issues early in the development process.
 - To run tests remotely a job was implemented in <code>[Jenkins](https://jenkins.autotests.cloud/job/MaryPimenova-VacancyProjectUnit14/)</code> with the creation of an <code>[Allure-report](https://jenkins.autotests.cloud/job/MaryPimenova-VacancyProjectUnit14/7/allure/)</code> and sending the results to <code>Telegram</code> using special Telegram bot.
 - Integrations with с <code>[Allure TestOps](https://allure.autotests.cloud/project/2434/dashboards)</code> and <code>[Jira](https://jira.autotests.cloud/browse/HOMEWORK-720)</code> were implemented.
 
-## :bookmark_tabs: List of implemented tests
-#### ✓ List of realized automatic tests
-- [x] Checking for the presence of the main menu items of the site
-- [x] Checking drop-down of the list elements in the main menu
-- [x] Checking for the presence of correct page titles when navigating through menu items
-- [x] Checking shopping cart filling
-- [x] Checking downloading files from the web-site
-- [x] Checking searching for the production by its arcticle or name
-- [x] Checking fulfilling of the registration form with valid/invalid data
+## 🚩 List of HTTP response status codes used
+#### ✓ List of successful responses
+| **CODE** | **STATUS** | **MEANING** |
+|:---------:|:---------:|:---------:|
+| <code>200</code>| OK| The request succeeded|
+| <code>201</code>| Created |The request succeeded, and a new resource was created as a result|
+| <code>204</code>| No Content |There is no content to send for this request, but the headers may be useful|
+#### ✓ List of client error responses
+| **CODE** | **STATUS** | **MEANING** |
+|:---------:|:---------:|:---------:|
+| <code>400</code>| Bad Request |The server can't process the request due to a client error|
+| <code>404</code>| Not Found |The server can't find the requested resource (resource itself doesn't exist)|
 
-#### ✓ List of realized manual tests
-- [x] Verification of filling the "Callback" form
-- [x] Verification of filling the "Write a letter" form
-- [x] Сhecking the content of articles in the News section
+## :bookmark_tabs: List of implemented API tests
+ <b> API POST </b>
+ <br>:white_check_mark: Successful user authorization (code 200)  <br />
+:white_check_mark: Unsuccessful user authorization as login and password are invalid (code 400) <br />
+:white_check_mark: Unsuccessful user authorization as password is missed (code 400) <br />
+:white_check_mark: Successful user registration (code 200) <br />
+:white_check_mark: Unsuccessful user registration as password is missed (code 400) <br />
+:white_check_mark: Creation a new user (code 201) <br />
+<b> API DELETE</b>
+ <br>:white_check_mark: Deleting a user (code 204) <br />
+<b> API PATCH</b>
+ <br>:white_check_mark: Updating user data (code 200) <br />
+<b> API PUT</b>
+ <br>:white_check_mark: User data update (code 200) <br />
+<b> API GET</b>
+ <br>:white_check_mark: Get user list page №2 and check its scheme (code 200) <br />
+:white_check_mark: Get user list page №2 and check users by IDs and names (code 200) <br />
+:white_check_mark: Attempt to get data about a non-existent single user (code 404) <br />
+:white_check_mark: Get single user data and check it by ID and name (code 200) <br />
+:white_check_mark: Get colors data and check it by IDs and names (code 200) <br />
+
 
 ## :desktop_computer: Running autotests from the terminal
-Lauching tests on a ***remote server*** using Jenkins and Selenoid (login and password are required for authorization) can be done using the following command from the terminal:
+Lauching tests can be done using the following command from the terminal:
 ```bash  
-gradle clean remote
+gradle clean test
 ```
 ___
-Running the following command in the IDE terminal will run the tests remotely in Selenoid taking into account the specified ***parameters***:
-```bash  
-gradle clean remote -Dbase_url=https://www.mzta.ru -Dselenoid_url=https://selenoid.autotests.cloud/wd/hub -Dselenoid_login_password=user1:1234  -Dbrowser=chrome:100.0 -Dbrowser_size=1920x1080
-```
-If you do not specify any parameters, then the test will run with the default values that we set above.
+Running the following command in the IDE terminal will run the tests locally.
 
 ## <img src="media/logotypes/Jenkins.svg" title="Jenkins" width="4%"/> Build in Jenkins
 #### Link to job in Jenkins
