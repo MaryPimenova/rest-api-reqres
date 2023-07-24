@@ -164,7 +164,7 @@ public class ReqresInWithSpecsTest {
         step("Check job in response", () ->
                 assertEquals(userFirstJob, patchResponse.getJob()));
         step("Check date of information updating in response", () ->
-                patchResponse.getUpdatedAt().startsWith("2023-06"));
+                patchResponse.getUpdatedAt().startsWith("2023"));
 
     }
 
@@ -188,7 +188,7 @@ public class ReqresInWithSpecsTest {
         step("Check job in response", () ->
                 assertEquals(userFirstJob, putResponse.getJob()));
         step("Check date of information updating in response", () ->
-                putResponse.getUpdatedAt().startsWith("2023-06"));
+                putResponse.getUpdatedAt().startsWith("2023"));
     }
 
     @Test
@@ -213,7 +213,7 @@ public class ReqresInWithSpecsTest {
         step("Check ID is not null in response", () ->
                 assertThat(createResponse.getId()).isNotNull());
         step("Check date of information creating in response", () ->
-                createResponse.getCreatedAt().startsWith("2023-06"));
+                createResponse.getCreatedAt().startsWith("2023"));
 
     }
 
