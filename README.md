@@ -30,6 +30,17 @@
 - To run tests remotely a job was implemented in <code>[Jenkins](https://jenkins.autotests.cloud/job/MaryPimenova-VacancyProjectUnit14/)</code> with the creation of an <code>[Allure-report](https://jenkins.autotests.cloud/job/MaryPimenova-VacancyProjectUnit14/7/allure/)</code> and sending the results to <code>Telegram</code> using special Telegram bot.
 - Integrations with с <code>[Allure TestOps](https://allure.autotests.cloud/project/2434/dashboards)</code> and <code>[Jira](https://jira.autotests.cloud/browse/HOMEWORK-720)</code> were implemented.
 
+## 🚩 List of HTTP response status codes used
+#### ✓ List of successful responses
+| **CODE** | **STATUS** | **MEANING** |
+|:---------:|:---------:|:---------:|
+| <code>200</code>| OK| The request succeeded|
+| <code>201</code>| Created |The request succeeded, and a new resource was created as a result|
+✓ Проверка валидации пароля
+✓ Проверка наличия выбранного email
+✓ Проверка наличия выбранного наименования цвета
+✓ Проверка данных пользователя
+
 ## :bookmark_tabs: List of implemented tests
 #### ✓ List of realized API tests
 - [x] Checking for the presence of the main menu items of the site
