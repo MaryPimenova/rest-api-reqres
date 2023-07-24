@@ -282,13 +282,13 @@ public class ReqresInWithSpecsTest {
                         .then()
                         .spec(responseWithCode200Spec)
                         .extract().as(ColorsResponseModel.class));
-        step("Check ID of the first user in response", () ->
+        step("Check ID of the first color in response", () ->
                 assertThat(response.getData().getFirst().getID()).isEqualTo(EXPECTED_FIRST_COLOR_ID.getValue()));
-        step("Check ID of the last user in response", () ->
+        step("Check ID of the last color in response", () ->
                 assertThat(response.getData().getLast().getID()).isEqualTo(EXPECTED_LAST_COLOR_ID.getValue()));
-        step("Check name of the first user in response", () ->
+        step("Check name of the first color in response", () ->
                 assertThat(response.getData().getFirst().getName()).isEqualTo(EXPECTED_NAME_OF_FIRST_COLOR.getValue()));
-        step("Check name of the last user in response", () ->
+        step("Check name of the last color in response", () ->
                 assertThat(response.getData().getLast().getName()).isEqualTo(EXPECTED_NAME_OF_LAST_COLOR.getValue()));
     }
 
