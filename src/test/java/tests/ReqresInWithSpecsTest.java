@@ -1,7 +1,11 @@
 package tests;
 
+import io.qameta.allure.Feature;
+import io.qameta.allure.Owner;
+import io.qameta.allure.Story;
 import models.lombok.*;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static io.qameta.allure.Allure.step;
@@ -11,6 +15,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.assertj.core.api.Assertions.assertThat;
 import static specs.Specs.*;
 
+@DisplayName("Tests of API for service Reqres.in")
+@Owner("maryPimenova")
+@Feature("API tests for reqres.in service")
+@Story("ReqresIn")
+@Tag("api")
 public class ReqresInWithSpecsTest {
     String expectedToken = "QpwL5tke4Pnpja7X4",
             userName = "morpheus",
