@@ -83,16 +83,16 @@ Using the link below you can go to the build of the project:
 #### Job in Jenkins: algorithm and autotests results
 1. Open the project from the link above. The screenshot shows the appearance of the project window in Jenkins.
 <p align="center">
-<img title="Jenkins_main_page" src="media/screenshots/jenkins_main_page.png">
+<img title="Jenkins_main_page" src="media/screenshots/jenkins_main_page.PNG">
 </p>
 
 2. Select the item "Collect now" on the left panel
-  <p align="center">
-<img title="Jenkins_starting_job" src="media/screenshots/jenkins_starting.png">
+<p align="center">
+<img title="Jenkins_starting_job" src="media/screenshots/jenkins_starting.PNG">
 </p>
 3. The results of running a build can be viewed in <code>Allure report</code> and <code>Allure TestOps</code>
 <p align="center">
-<img title="Jenkins_build" src="media/screenshots/Jenkins_build_upd.jpg">
+<img title="Jenkins_job_results" src="media/screenshots/jenkins_results.PNG">
 </p>
 
 ## <img src="media/logotypes/Allure_Report.svg" title="Allure_Report" width="4%"/> Allure report
