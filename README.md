@@ -87,7 +87,9 @@ Using the link below you can go to the build of the project:
 </p>
 
 2. Select the item "Collect now" on the left panel
-   
+  <p align="center">
+<img title="Jenkins_starting_job" src="media/screenshots/jenkins_starting.png">
+</p>
 3. The results of running a build can be viewed in <code>Allure report</code> and <code>Allure TestOps</code>
 <p align="center">
 <img title="Jenkins_build" src="media/screenshots/Jenkins_build_upd.jpg">
