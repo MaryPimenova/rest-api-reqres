@@ -10,7 +10,7 @@
 
 ## 🎀 Table of contents
 - [Tools and technologies](#hammer_and_wrench-tools-and-technologies)
-- [List of implemented tests](#bookmark_tabs-list-of-implemented-tests)
+- [List of implemented API tests](#bookmark_tabs-list-of-implemented-api-tests)
 - [Running autotests from the terminal](#desktop_computer-running-autotests-from-the-terminal)
 - [Build in Jenkins](#-build-in-jenkins)
 - [Allure report](#-allure-report)
@@ -36,69 +36,42 @@
 |:---------:|:---------:|:---------:|
 | <code>200</code>| OK| The request succeeded|
 | <code>201</code>| Created |The request succeeded, and a new resource was created as a result|
-✓ Проверка валидации пароля
-✓ Проверка наличия выбранного email
-✓ Проверка наличия выбранного наименования цвета
-✓ Проверка данных пользователя
+| <code>204</code>| No Content |There is no content to send for this request, but the headers may be useful|
+#### ✓ List of client error responses
+| **CODE** | **STATUS** | **MEANING** |
+|:---------:|:---------:|:---------:|
+| <code>400</code>| Bad Request |The server can't process the request due to a client error|
+| <code>404</code>| Not Found |The server can't find the requested resource (resource itself doesn't exist)|
 
-## :bookmark_tabs: List of implemented tests
-#### ✓ List of realized API tests
-- [x] Checking for the presence of the main menu items of the site
-- [x] Checking drop-down of the list elements in the main menu
-- [x] Checking for the presence of correct page titles when navigating through menu items
-- [x] Checking shopping cart filling
-- [x] Checking downloading files from the web-site
-- [x] Checking searching for the production by its arcticle or name
-- [x] Checking fulfilling of the registration form with valid/invalid data
-
-Проверка валидации логина
-✓ Проверка валидации пароля
-✓ Проверка наличия выбранного email
-✓ Проверка наличия выбранного наименования цвета
-✓ Проверка данных пользователя
-✓ Создание нового пользователя
-✓ Проверка отсутствия ресурса
-✓ Удаление данных
-Получение списка пользователей
-Проверка наличия пользователя в базе
-Создание нового пользователя
-Обновление данных пользователя
-Успешная регистрация
-Проверка id, email пользователя
-Проверка успешного логина
-Проверка наличия Michael Lawson в списке пользователей
-Проверка создания пользователя
-Проверка обновления данных пользователя
-Проверка статус кода при удалении пользователя
-Проверка успешной регистрации
-Проверка id и email пользователя
-
-✅ Успешная авторизация API POST
-
-✅ Изменение пользователя API PUT
-
-✅ Получение пользователя API GET
-
-✅ Регистрация пользователя API POST
-
-✅ Создание юзера API POST
-
-✅ Список пользователей API GET
-
-✅ Удаление пользователя API DELETE
+## :bookmark_tabs: List of implemented API tests
+ <b> API POST </b>
+ <br>:white_check_mark: Successful user authorization (code 200)  <br />
+:white_check_mark: Unsuccessful user authorization as login and password are invalid (code 400) <br />
+:white_check_mark: Unsuccessful user authorization as password is missed (code 400) <br />
+:white_check_mark: Successful user registration (code 200) <br />
+:white_check_mark: Unsuccessful user registration as password is missed (code 400) <br />
+:white_check_mark: Creation a new user (code 201) <br />
+<b> API DELETE</b>
+ <br>:white_check_mark: Deleting a user (code 204) <br />
+<b> API PATCH</b>
+ <br>:white_check_mark: Updating user data (code 200) <br />
+<b> API PUT</b>
+ <br>:white_check_mark: User data update (code 200) <br />
+<b> API GET</b>
+ <br>:white_check_mark: Get user list page №2 and check its scheme (code 200) <br />
+:white_check_mark: Get user list page №2 and check users by IDs and names (code 200) <br />
+:white_check_mark: Attempt to get data about a non-existent single user (code 404) <br />
+:white_check_mark: Get single user data and check it by ID and name (code 200) <br />
+:white_check_mark: Get colors data and check it by IDs and names (code 200) <br />
 
 
 ## :desktop_computer: Running autotests from the terminal
-Lauching tests on a ***remote server*** using Jenkins and Selenoid (login and password are required for authorization) can be done using the following command from the terminal:
+Lauching tests can be done using the following command from the terminal:
 ```bash  
-gradle clean remote
+gradle clean test
 ```
 ___
-Running the following command in the IDE terminal will run the tests remotely in Selenoid taking into account the specified ***parameters***:
-```bash  
-gradle clean remote -Dbase_url=https://www.mzta.ru -Dselenoid_url=https://selenoid.autotests.cloud/wd/hub -Dselenoid_login_password=user1:1234  -Dbrowser=chrome:100.0 -Dbrowser_size=1920x1080
-```
-If you do not specify any parameters, then the test will run with the default values that we set above.
+Running the following command in the IDE terminal will run the tests locally.
 
 ## <img src="media/logotypes/Jenkins.svg" title="Jenkins" width="4%"/> Build in Jenkins
 #### Link to job in Jenkins
