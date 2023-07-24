@@ -1,9 +1,12 @@
 > "Testing leads to failure, and failure leads to understanding" - Burt Rutan
-# :woman_technologist:Test automation project for [REQRES]([https://www.mzta.ru/](https://reqres.in/)) service
+# :woman_technologist:Test automation project for [REQRES.IN]([https://www.mzta.ru/](https://reqres.in/)) service
+![WB_logo.jpg](media/logotypes/reqres_logo.png)
 > - The process of automatically testing and verifying the functionality of an application programming interface (API) is known as API automation.
 > - It helps ensure that the API functions as intended and reduces the time and effort spent on manual testing.
 > - API automation is implemented using software tools that send requests to the API, parse the responses, and compare them to the expected results.
 > - The goal of API automation is to increase the reliability and consistency of the testing process, which saves time and resources.
+> - REST API stands for Representational State Transfer API, which is a web standards-based architecture for building web services.
+> - REST API is a common way of communication between clients and servers over the Internet. REST APIs use HTTP requests to manipulate data, such as POST, PUT, GET, and DELETE.
 
 ## 🎀 Table of contents
 - [Tools and technologies](#hammer_and_wrench-tools-and-technologies)
@@ -18,16 +21,17 @@
 
 | IntelliJ IDEA | Java | Rest Assured | Allure Report |  Allure TestOps | Gradle | JUnit5 | GitHub | Jenkins| Telegram | Jira |
 |:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|
-| <img width="90%" title="IntelliJ IDEA" src="media/logotypes/Intelij_IDEA.svg"> | <img width="100%" title="Java" src="media/logotypes/Java.svg"> | <img width="90%" title="Rest_Assured" src="media/logotypes/RestAssured.png"> |<img width="100%" title="Allure Report" src="media/logotypes/Allure_Report.svg"> |<img width="60%" title="Allure TestOps" src="media/logotypes/AllureTestOps.svg"> |<img width="90%" title="Gradle" src="media/logotypes/Gradle.svg"> |<img width="90%" title="JUnit5" src="media/logotypes/JUnit5.svg"> |<img width="90%" title="GitHub" src="media/logotypes/GitHub.svg"> |<img width="90%" title="Jenkins" src="media/logotypes/Jenkins.svg"> |<img width="80%" title="Telegram" src="media/logotypes/Telegram.svg">|<img width="85%" title="Jira" src="media/logotypes/Jira.svg">|
+| <img width="90%" title="IntelliJ IDEA" src="media/logotypes/Intelij_IDEA.svg"> | <img width="110%" title="Java" src="media/logotypes/Java.svg"> | <img width="80%" title="Rest_Assured" src="media/logotypes/RestAssured.png"> |<img width="100%" title="Allure Report" src="media/logotypes/Allure_Report.svg"> |<img width="60%" title="Allure TestOps" src="media/logotypes/AllureTestOps.svg"> |<img width="90%" title="Gradle" src="media/logotypes/Gradle.svg"> |<img width="90%" title="JUnit5" src="media/logotypes/JUnit5.svg"> |<img width="90%" title="GitHub" src="media/logotypes/GitHub.svg"> |<img width="90%" title="Jenkins" src="media/logotypes/Jenkins.svg"> |<img width="80%" title="Telegram" src="media/logotypes/Telegram.svg">|<img width="45%" title="Jira" src="media/logotypes/Jira.svg">|
 - To create autotests in this project the <code>[Java](https://www.java.com/)</code> language was used.
 - <code>[Gradle](https://gradle.org/)</code> was used as an automatic build system.  
-- Frameworks <code>[JUnit5](https://junit.org/junit5/)</code> and <code>[Selenide](https://selenide.org/)</code> for automated testing of web applications have been applied.
-- Browsers were launched via <code>[Selenoid](https://aerokube.com/selenoid/)</code>.
+- Framework <code>[JUnit5](https://junit.org/junit5/)</code> for automated unit testing has been applied.
+- The models of the received data are described using the <code>[Lombok](https://mvnrepository.com/artifact/org.projectlombok/lombok)</code> library.
+- API testing is done using the <code>[Rest Assured](https://rest-assured.io/)</code> library. This library helps identify and fix bugs and issues early in the development process.
 - To run tests remotely a job was implemented in <code>[Jenkins](https://jenkins.autotests.cloud/job/MaryPimenova-VacancyProjectUnit14/)</code> with the creation of an <code>[Allure-report](https://jenkins.autotests.cloud/job/MaryPimenova-VacancyProjectUnit14/7/allure/)</code> and sending the results to <code>Telegram</code> using special Telegram bot.
 - Integrations with с <code>[Allure TestOps](https://allure.autotests.cloud/project/2434/dashboards)</code> and <code>[Jira](https://jira.autotests.cloud/browse/HOMEWORK-720)</code> were implemented.
 
 ## :bookmark_tabs: List of implemented tests
-#### ✓ List of realized automatic tests
+#### ✓ List of realized API tests
 - [x] Checking for the presence of the main menu items of the site
 - [x] Checking drop-down of the list elements in the main menu
 - [x] Checking for the presence of correct page titles when navigating through menu items
@@ -36,11 +40,14 @@
 - [x] Checking searching for the production by its arcticle or name
 - [x] Checking fulfilling of the registration form with valid/invalid data
 
-#### ✓ List of realized manual tests
-- [x] Verification of filling the "Callback" form
-- [x] Verification of filling the "Write a letter" form
-- [x] Сhecking the content of articles in the News section
-
+Проверка валидации логина
+✓ Проверка валидации пароля
+✓ Проверка наличия выбранного email
+✓ Проверка наличия выбранного наименования цвета
+✓ Проверка данных пользователя
+✓ Создание нового пользователя
+✓ Проверка отсутствия ресурса
+✓ Удаление данных
 ## :desktop_computer: Running autotests from the terminal
 Lauching tests on a ***remote server*** using Jenkins and Selenoid (login and password are required for authorization) can be done using the following command from the terminal:
 ```bash  
