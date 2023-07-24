@@ -1,5 +1,5 @@
 > "Testing leads to failure, and failure leads to understanding" - Burt Rutan
-# :woman_technologist:Test automation project for [REQRES.IN]([https://www.mzta.ru/](https://reqres.in/)) service
+# :woman_technologist:Test automation project for [REQRES.IN](https://reqres.in/) service
 ![WB_logo.jpg](media/logotypes/reqres_logo.png)
 > - The process of automatically testing and verifying the functionality of an application programming interface (API) is known as API automation.
 > - It helps ensure that the API functions as intended and reduces the time and effort spent on manual testing.
@@ -22,6 +22,7 @@
 | IntelliJ IDEA | Java | Rest Assured | Allure Report |  Allure TestOps | Gradle | JUnit5 | GitHub | Jenkins| Telegram | Jira |
 |:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|
 | <img width="90%" title="IntelliJ IDEA" src="media/logotypes/Intelij_IDEA.svg"> | <img width="110%" title="Java" src="media/logotypes/Java.svg"> | <img width="80%" title="Rest_Assured" src="media/logotypes/RestAssured.png"> |<img width="100%" title="Allure Report" src="media/logotypes/Allure_Report.svg"> |<img width="60%" title="Allure TestOps" src="media/logotypes/AllureTestOps.svg"> |<img width="90%" title="Gradle" src="media/logotypes/Gradle.svg"> |<img width="90%" title="JUnit5" src="media/logotypes/JUnit5.svg"> |<img width="90%" title="GitHub" src="media/logotypes/GitHub.svg"> |<img width="90%" title="Jenkins" src="media/logotypes/Jenkins.svg"> |<img width="80%" title="Telegram" src="media/logotypes/Telegram.svg">|<img width="45%" title="Jira" src="media/logotypes/Jira.svg">|
+
 - To create autotests in this project the <code>[Java](https://www.java.com/)</code> language was used.
 - <code>[Gradle](https://gradle.org/)</code> was used as an automatic build system.  
 - Framework <code>[JUnit5](https://junit.org/junit5/)</code> for automated unit testing has been applied.
@@ -75,35 +76,19 @@ Running the following command in the IDE terminal will run the tests locally.
 
 ## <img src="media/logotypes/Jenkins.svg" title="Jenkins" width="4%"/> Build in Jenkins
 #### Link to job in Jenkins
-Using the link below you can go to the parameterized build of the project:
+Using the link below you can go to the build of the project:
 
-> :globe_with_meridians: <code>[Link to the job in Jenkins](https://jenkins.autotests.cloud/job/Students/job/MaryPimenova-VacancyProjectUnit14/7/)</code>
-
-#### Build options
-The table below shows the build options in Jenkins, their purpose and default settings.
-
-| **PARAMETER** | **DESCRIPTION** | **DEFAULT VALUE** |
-|:---------:|:---------:|:---------:|
-| <code>BASE_URL</code>| Base URL of the site for configuration settings|https://www.mzta.ru|
-| <code>SELENOID_URL</code>| Selenoid URL for configuration settings|https://selenoid.autotests.cloud/wd/hub|
-| <code>USER_LOGIN</code>| Login to the Selenoid account|	:lock:	:lock:	:lock:	:lock:|
-| <code>USER_PASSWORD</code>| Password to the Selenoid account|	:lock:	:lock:	:lock:	:lock:|
-| <code>BROWSER</code>| Browser type and its version|Chrome : 100.0|
-| <code>BROWSER_SIZE</code>| Browser size |1920x1080|
+> :globe_with_meridians: <code>[Link to the job in Jenkins](https://jenkins.autotests.cloud/job/MaryPimenova-ReqresRestAPI/)</code>
 
 #### Job in Jenkins: algorithm and autotests results
 1. Open the project from the link above. The screenshot shows the appearance of the project window in Jenkins.
 <p align="center">
-<img title="Jenkins" src="media/screenshots/Jenkins.jpg">
+<img title="Jenkins" src="media/screenshots/jenkins_main_page.png">
 </p>
 
-2. Select the item "Collect with parameters" on the left panel
-
-3. If necessary, change the parameters by selecting values from the drop-down lists
-
-4. Click "Collect" button
-
-5. The results of running a parameterized build can be viewed in <code>Allure report</code> and <code>Allure TestOps</code>
+2. Select the item "Collect now" on the left panel
+   
+3. The results of running a build can be viewed in <code>Allure report</code> and <code>Allure TestOps</code>
 <p align="center">
 <img title="Jenkins_build" src="media/screenshots/Jenkins_build_upd.jpg">
 </p>
