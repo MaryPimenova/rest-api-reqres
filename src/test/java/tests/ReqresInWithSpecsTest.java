@@ -14,6 +14,11 @@ import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInC
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.assertj.core.api.Assertions.assertThat;
 import static specs.Specs.*;
+import static constantData.ErrorMessages.*;
+import static constantData.UsersData.*;
+import static constantData.ResponseData.*;
+import static constantData.ColorsData.*;
+import static constantData.IDs.*;
 
 @DisplayName("Tests of API for service Reqres.in")
 @Owner("maryPimenova")
@@ -21,35 +26,13 @@ import static specs.Specs.*;
 @Story("ReqresIn")
 @Tag("api")
 public class ReqresInWithSpecsTest {
-    String expectedToken = "QpwL5tke4Pnpja7X4",
-            userName = "morpheus",
-            userFirstJob = "zion resident",
-            userSecondJob = "leader",
-            userFirstEmail = "eve.holt@reqres.in",
-            userSecondEmail = "peter@klaven",
-            userThirdEmail = "sydney@fife",
-            userFirstPassword = "cityslicka",
-            userSecondPassword = "pistol",
-            expectedErrorMessageNoEmailOrPassword = "Missing email or username",
-            expectedErrorMessageNoPassword = "Missing password",
-            expectedID = "4",
-            expectedLastNameOfFirstUser = "Lawson",
-            expectedLastNameOfLastUser = "Howell",
-            expectedSingleUserLastName = "Weaver",
-            expectedNameOfFirstColor = "cerulean",
-            expectedNameOfLastColor = "blue turquoise";
-    Integer expectedSingleUserID = 2,
-            expectedIDOfFirstUser = 7,
-            expectedIDOfLastUser = 12,
-            expectedFirstColorID = 1,
-            expectedLastColorID = 6;
 
     @Test
     @DisplayName("User login is successful")
     void successfulLoginWithSpecsTest() {
         UserLoginAndRegistrationRequestModel requestBody = new UserLoginAndRegistrationRequestModel();
-        requestBody.setEmail(userFirstEmail);
-        requestBody.setPassword(userFirstPassword);
+        requestBody.setEmail(USER_FIRST_EMAIL.getValue());
+        requestBody.setPassword(USER_FIRST_PASSWORD.getValue());
 
         UserLoginResponseModel loginResponse = step("Make request", () ->
                 given(requestSpec)
@@ -60,15 +43,15 @@ public class ReqresInWithSpecsTest {
                         .spec(responseWithCode200Spec)
                         .extract().as(UserLoginResponseModel.class));
         step("Check token in response", () ->
-                assertEquals(expectedToken, loginResponse.getToken()));
+                assertEquals(EXPECTED_TOKEN.getValue(), loginResponse.getToken()));
     }
 
     @Test
     @DisplayName("User login and password are invalid (missing json format, error 400)")
     void negativeLoginAndPassword400WithSpecsTest() {
         UserLoginAndRegistrationRequestModel requestBody = new UserLoginAndRegistrationRequestModel();
-        requestBody.setEmail(userFirstEmail);
-        requestBody.setPassword(userFirstPassword);
+        requestBody.setEmail(USER_FIRST_EMAIL.getValue());
+        requestBody.setPassword(USER_FIRST_PASSWORD.getValue());
 
         UserLoginResponseModel loginResponse = step("Make request", () ->
                 given(loginRequestWithoutJsonFormatSpec)
@@ -79,14 +62,14 @@ public class ReqresInWithSpecsTest {
                         .spec(responseWithCode400Spec)
                         .extract().as(UserLoginResponseModel.class));
         step("Check error message in response", () ->
-                assertEquals(expectedErrorMessageNoEmailOrPassword, loginResponse.getError()));
+                assertEquals(MISSING_EMAIL_OR_USERNAME.getValue(), loginResponse.getError()));
     }
 
     @Test
     @DisplayName("User login is unsuccessful as password is missed (error 400)")
     void negativePassword400WithSpecsTest() {
         UserLoginAndRegistrationRequestModel requestBody = new UserLoginAndRegistrationRequestModel();
-        requestBody.setEmail(userSecondEmail);
+        requestBody.setEmail(USER_SECOND_EMAIL.getValue());
 
         UserLoginResponseModel loginResponse = step("Make request", () ->
                 given(requestSpec)
@@ -98,15 +81,15 @@ public class ReqresInWithSpecsTest {
                         .extract().as(UserLoginResponseModel.class));
 
         step("Check error message in response", () ->
-                assertEquals(expectedErrorMessageNoPassword, loginResponse.getError()));
+                assertEquals(MISSING_PASSWORD.getValue(), loginResponse.getError()));
     }
 
     @Test
     @DisplayName("User registration is successful")
     void successfulRegistrationWithSpecsTest() {
         UserLoginAndRegistrationRequestModel requestBody = new UserLoginAndRegistrationRequestModel();
-        requestBody.setEmail(userFirstEmail);
-        requestBody.setPassword(userSecondPassword);
+        requestBody.setEmail(USER_FIRST_EMAIL.getValue());
+        requestBody.setPassword(USER_SECOND_PASSWORD.getValue());
 
         UserRegistrationResponseModel registrationResponse = step("Make request", () ->
                 given(requestSpec)
@@ -117,16 +100,16 @@ public class ReqresInWithSpecsTest {
                         .spec(responseWithCode200Spec)
                         .extract().as(UserRegistrationResponseModel.class));
         step("Check ID value in response", () ->
-                assertEquals(expectedID, registrationResponse.getID()));
+                assertEquals(EXPECTED_ID.getValue(), registrationResponse.getID()));
         step("Check token in response", () ->
-                assertEquals(expectedToken, registrationResponse.getToken()));
+                assertEquals(EXPECTED_TOKEN.getValue(), registrationResponse.getToken()));
     }
 
     @Test
     @DisplayName("User registration is unsuccessful (password is missed, error 400)")
     void negativeRegistrationTest() {
         UserLoginAndRegistrationRequestModel requestBody = new UserLoginAndRegistrationRequestModel();
-        requestBody.setEmail(userThirdEmail);
+        requestBody.setEmail(USER_THIRD_EMAIL.getValue());
 
         UserRegistrationResponseModel registrationResponse = step("Make request", () ->
                 given(requestSpec)
@@ -137,7 +120,7 @@ public class ReqresInWithSpecsTest {
                         .spec(responseWithCode400Spec)
                         .extract().as(UserRegistrationResponseModel.class));
         step("Check error message in response", () ->
-                assertEquals(expectedErrorMessageNoPassword, registrationResponse.getError()));
+                assertEquals(MISSING_PASSWORD.getValue(), registrationResponse.getError()));
     }
 
     @Test
@@ -157,8 +140,8 @@ public class ReqresInWithSpecsTest {
     void patchWithSpecsTest() {
 
         CreatePatchPutRequestModel requestBody = new CreatePatchPutRequestModel();
-        requestBody.setName(userName);
-        requestBody.setJob(userFirstJob);
+        requestBody.setName(USER_NAME.getValue());
+        requestBody.setJob(USER_FIRST_JOB.getValue());
 
         CreatePatchPutResponseModel patchResponse = step("Make request", () ->
                 given(requestSpec)
@@ -169,9 +152,9 @@ public class ReqresInWithSpecsTest {
                         .spec(responseWithCode200Spec)
                         .extract().as(CreatePatchPutResponseModel.class));
         step("Check name in response", () ->
-                assertEquals(userName, patchResponse.getName()));
+                assertEquals(USER_NAME.getValue(), patchResponse.getName()));
         step("Check job in response", () ->
-                assertEquals(userFirstJob, patchResponse.getJob()));
+                assertEquals(USER_FIRST_JOB.getValue(), patchResponse.getJob()));
         step("Check date of information updating in response", () ->
                 patchResponse.getUpdatedAt().startsWith("2023"));
 
@@ -181,8 +164,8 @@ public class ReqresInWithSpecsTest {
     @DisplayName("Test of put option")
     void putWithSpecsTest() {
         CreatePatchPutRequestModel requestBody = new CreatePatchPutRequestModel();
-        requestBody.setName(userName);
-        requestBody.setJob(userFirstJob);
+        requestBody.setName(USER_NAME.getValue());
+        requestBody.setJob(USER_FIRST_JOB.getValue());
 
         CreatePatchPutResponseModel putResponse = step("Make request", () ->
                 given(requestSpec)
@@ -193,9 +176,9 @@ public class ReqresInWithSpecsTest {
                         .spec(responseWithCode200Spec)
                         .extract().as(CreatePatchPutResponseModel.class));
         step("Check name in response", () ->
-                assertEquals(userName, putResponse.getName()));
+                assertEquals(USER_NAME.getValue(), putResponse.getName()));
         step("Check job in response", () ->
-                assertEquals(userFirstJob, putResponse.getJob()));
+                assertEquals(USER_FIRST_JOB.getValue(), putResponse.getJob()));
         step("Check date of information updating in response", () ->
                 putResponse.getUpdatedAt().startsWith("2023"));
     }
@@ -204,8 +187,8 @@ public class ReqresInWithSpecsTest {
     @DisplayName("Test of creation via POST option")
     void creationWithSpecsTest() {
         CreatePatchPutRequestModel requestBody = new CreatePatchPutRequestModel();
-        requestBody.setName(userName);
-        requestBody.setJob(userSecondJob);
+        requestBody.setName(USER_NAME.getValue());
+        requestBody.setJob(USER_SECOND_JOB.getValue());
 
         CreatePatchPutResponseModel createResponse = step("Make request", () ->
                 given(requestSpec)
@@ -216,9 +199,9 @@ public class ReqresInWithSpecsTest {
                         .spec(responseWithCode201Spec)
                         .extract().as(CreatePatchPutResponseModel.class));
         step("Check name in response", () ->
-                assertEquals(userName, createResponse.getName()));
+                assertEquals(USER_NAME.getValue(), createResponse.getName()));
         step("Check job in response", () ->
-                assertEquals(userSecondJob, createResponse.getJob()));
+                assertEquals(USER_SECOND_JOB.getValue(), createResponse.getJob()));
         step("Check ID is not null in response", () ->
                 assertThat(createResponse.getId()).isNotNull());
         step("Check date of information creating in response", () ->
@@ -251,13 +234,13 @@ public class ReqresInWithSpecsTest {
                         .spec(responseWithCode200Spec)
                         .extract().as(UsersListResponseModel.class));
         step("Check ID of the first user in response", () ->
-                assertThat(response.getData().getFirst().getID()).isEqualTo(expectedIDOfFirstUser));
+                assertThat(response.getData().getFirst().getID()).isEqualTo(EXPECTED_FIRST_USER_ID.getValue()));
         step("Check ID of the last user in response", () ->
-                assertThat(response.getData().getLast().getID()).isEqualTo(expectedIDOfLastUser));
+                assertThat(response.getData().getLast().getID()).isEqualTo(EXPECTED_LAST_USER_ID.getValue()));
         step("Check name of the first user in response", () ->
-                assertThat(response.getData().getFirst().getLast_name()).isEqualTo(expectedLastNameOfFirstUser));
+                assertThat(response.getData().getFirst().getLast_name()).isEqualTo(EXPECTED_LAST_NAME_OF_FIRST_USER.getValue()));
         step("Check name of the last user in response", () ->
-                assertThat(response.getData().getLast().getLast_name()).isEqualTo(expectedLastNameOfLastUser));
+                assertThat(response.getData().getLast().getLast_name()).isEqualTo(EXPECTED_LAST_NAME_OF_LAST_USER.getValue()));
 
     }
 
@@ -284,9 +267,9 @@ public class ReqresInWithSpecsTest {
                         .spec(responseWithCode200Spec)
                         .extract().as(SingleUserResponseModel.class));
         step("Check ID of the single user in response", () ->
-                assertThat(response.getData().getID()).isEqualTo(expectedSingleUserID));
+                assertThat(response.getData().getID()).isEqualTo(EXPECTED_SINGLE_USER_ID.getValue()));
         step("Check the last name of the single user in response", () ->
-                assertThat(response.getData().getLast_name()).isEqualTo(expectedSingleUserLastName));
+                assertThat(response.getData().getLast_name()).isEqualTo(EXPECTED_SINGLE_USER_LAST_NAME.getValue()));
     }
 
     @Test
@@ -300,13 +283,13 @@ public class ReqresInWithSpecsTest {
                         .spec(responseWithCode200Spec)
                         .extract().as(ColorsResponseModel.class));
         step("Check ID of the first user in response", () ->
-                assertThat(response.getData().getFirst().getID()).isEqualTo(expectedFirstColorID));
+                assertThat(response.getData().getFirst().getID()).isEqualTo(EXPECTED_FIRST_COLOR_ID.getValue()));
         step("Check ID of the last user in response", () ->
-                assertThat(response.getData().getLast().getID()).isEqualTo(expectedLastColorID));
+                assertThat(response.getData().getLast().getID()).isEqualTo(EXPECTED_LAST_COLOR_ID.getValue()));
         step("Check name of the first user in response", () ->
-                assertThat(response.getData().getFirst().getName()).isEqualTo(expectedNameOfFirstColor));
+                assertThat(response.getData().getFirst().getName()).isEqualTo(EXPECTED_NAME_OF_FIRST_COLOR.getValue()));
         step("Check name of the last user in response", () ->
-                assertThat(response.getData().getLast().getName()).isEqualTo(expectedNameOfLastColor));
+                assertThat(response.getData().getLast().getName()).isEqualTo(EXPECTED_NAME_OF_LAST_COLOR.getValue()));
     }
 
 
