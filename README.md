@@ -126,12 +126,12 @@ Graphs allow you to see different statistics collected from the test data: statu
 #### Link to Allure TestOps
 Using the link below you can go to the Allure TestOps:
 
-> :globe_with_meridians: <code>[Link to the  Allure TestOps](https://allure.autotests.cloud/project/2434/dashboards)</code>
+> :globe_with_meridians: <code>[Link to the  Allure TestOps](https://allure.autotests.cloud/project/3559/dashboards)</code>
 
 #### Allure TestOps: dashboard
 Standard dashboard (see the picture below) provides instant insight on status of tests you're having in your project and resides in the Dashboards section of a project.
 <p align="center">
-<img title="Allure_testOps_overview" src="media/screenshots/Allure_testOps_overview_mini.jpg">
+<img title="Allure_testOps_overview" src="media/screenshots/allure_testops_dashboards.PNG">
 </p>
 The default dashboard contains:
 
@@ -145,21 +145,14 @@ The default dashboard contains:
 Allure TestOps supports working with both – manual and automated test cases. Steps of a test case are described in the scenario.
 
 <p align="center">
-<img title="Allure_testOps_test_cases" src="media/screenshots/Allure_testOps_test_cases.jpg">
+<img title="Allure_testOps_test_cases" src="media/screenshots/allure_testops_test_cases.jpg">
 </p>
 
-#### Allure TestOps: manual tests
-Manual test cases with scenario of execution are shown on the picture below.
-
-<p align="center">
-<img title="Allure_testOps_manual" src="media/screenshots/Allure_testOps_manual.jpg">
-</p>
-
-#### Allure TestOps: automated tests
+#### Allure TestOps: launches
 Automated test cases are generated based on test results received from automated tests.
 
 <p align="center">
-<img title="Allure_testOps_automated" src="media/screenshots/Allure_testOps_automated.jpg">
+<img title="Allure_testOps_automated" src="media/screenshots/allure_testops_launches.PNG">
 </p>
 
 ## <img src="media/logotypes/Jira.svg" title="Jira" width="5%"/> Integration with Jira
