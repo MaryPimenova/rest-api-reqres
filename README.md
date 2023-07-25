@@ -99,7 +99,7 @@ Using the link below you can go to the build of the project:
 #### Link to Allure report
 Using the link below you can go to the Allure report:
 
-> :globe_with_meridians: <code>[Link to the  Allure report](https://jenkins.autotests.cloud/job/MaryPimenova-VacancyProjectUnit14/7/allure/)</code>
+> :globe_with_meridians: <code>[Link to the  Allure report](https://jenkins.autotests.cloud/job/MaryPimenova-ReqresRestAPI/8/allure/)</code>
 
 #### Allure report: overview
 The screenshot below shows the main page of the report.
