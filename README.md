@@ -161,7 +161,7 @@ Automated test cases are generated based on test results received from automated
 ## <img src="media/logotypes/Jira.svg" title="Jira" width="5%"/> Integration with Jira
 #### Link to Jira
 Using the link below you can go to the Jira:
-> :globe_with_meridians: <code>[Link to the  Jira](https://jira.autotests.cloud/browse/HOMEWORK-720)</code>
+> :globe_with_meridians: <code>[Link to the  Jira](https://jira.autotests.cloud/browse/HOMEWORK-819)</code>
 
 The task displays the test cases attached to it, as well as the results of running/passed tests.
 <p align="center">
