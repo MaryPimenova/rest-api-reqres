@@ -110,17 +110,16 @@ The screenshot below shows the main page of the report.
 #### Allure report: test cases
 On the Suites tab a standard structural representation of executed tests can be found.
 <p align="center">
-<img title="Allure_report_suits" src="media/screenshots/Allure_report_suits_optimal.jpg">
+<img title="Allure_report_suits" src="media/screenshots/allure_report_suits.PNG">
 </p>
-
 
 #### Allure report: graphs
 Graphs allow you to see different statistics collected from the test data: statuses breakdown or severity and duration diagrams.
 <p align="center">
-<img title="Allure_report_graphs1" src="media/screenshots/Allure_report_graphs1.jpg">
+<img title="Allure_report_graphs1" src="media/screenshots/allure_report_graphs1.PNG">
 </p>
 <p align="center">
-<img title="Allure_report_graphs2" src="media/screenshots/Allure_report_graphs2.jpg">
+<img title="Allure_report_graphs2" src="media/screenshots/allure_report_graphs2.PNG">
 </p>
 
 ## <img src="media/logotypes/AllureTestOps.svg" title="Allure_TestOps" width="4%"/> Allure TestOps
