@@ -145,7 +145,7 @@ The default dashboard contains:
 Allure TestOps supports working with both – manual and automated test cases. Steps of a test case are described in the scenario.
 
 <p align="center">
-<img title="Allure_testOps_test_cases" src="media/screenshots/allure_testops_test_cases.jpg">
+<img title="Allure_testOps_test_cases" src="media/screenshots/allure_testops_test_cases.PNG">
 </p>
 
 #### Allure TestOps: launches
