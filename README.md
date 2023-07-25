@@ -59,8 +59,8 @@
 <b> API PUT</b>
  <br>:white_check_mark: User data update (code 200) <br />
 <b> API GET</b>
- <br>:white_check_mark: Get user list page №2 and check its scheme (code 200) <br />
-:white_check_mark: Get user list page №2 and check users by IDs and names (code 200) <br />
+ <br>:white_check_mark: Get users list page №2 and check its scheme (code 200) <br />
+:white_check_mark: Get users list page №2 and check users by IDs and names (code 200) <br />
 :white_check_mark: Attempt to get data about a non-existent single user (code 404) <br />
 :white_check_mark: Get single user data and check it by ID and name (code 200) <br />
 :white_check_mark: Get colors data and check it by IDs and names (code 200) <br />
@@ -109,6 +109,8 @@ The screenshot below shows the main page of the report.
 
 #### Allure report: test cases
 On the Suites tab a standard structural representation of executed tests can be found.
+
+The test result on the right panel contains: <b>request</b> with attachment of <code>request method</code>, <code>url</code>, <code>body</code>, <code>headers</code>, <code>curl</code> and <b>response</b> with attachment of <code>status code</code>, <code>headers</code>, <code>body</code>.
 <p align="center">
 <img title="Allure_report_suits" src="media/screenshots/allure_report_suits.PNG">
 </p>
@@ -145,12 +147,13 @@ The default dashboard contains:
 Allure TestOps supports working with both – manual and automated test cases. Steps of a test case are described in the scenario.
 
 <p align="center">
-<img title="Allure_testOps_test_cases" src="media/screenshots/allure_testops_test_cases.jpg">
+<img title="Allure_testOps_test_cases" src="media/screenshots/allure_testops_test_cases.PNG">
 </p>
 
 #### Allure TestOps: launches
-Automated test cases are generated based on test results received from automated tests.
+The test result on the right panel contains: <b>request</b> with attachment of <code>request method</code>, <code>url</code>, <code>body</code>, <code>headers</code>, <code>curl</code> and <b>response</b> with attachment of <code>status code</code>, <code>headers</code>, <code>body</code>.
 
+Automated test cases are generated based on test results received from automated tests.
 <p align="center">
 <img title="Allure_testOps_automated" src="media/screenshots/allure_testops_launches.PNG">
 </p>
@@ -158,31 +161,16 @@ Automated test cases are generated based on test results received from automated
 ## <img src="media/logotypes/Jira.svg" title="Jira" width="5%"/> Integration with Jira
 #### Link to Jira
 Using the link below you can go to the Jira:
-> :globe_with_meridians: <code>[Link to the  Jira](https://jira.autotests.cloud/browse/HOMEWORK-720)</code>
+> :globe_with_meridians: <code>[Link to the  Jira](https://jira.autotests.cloud/browse/HOMEWORK-819)</code>
+
+The task displays the test cases attached to it, as well as the results of running/passed tests.
 <p align="center">
-<img title="Jira" src="media/screenshots/Jira.jpg">
+<img title="Jira" src="media/screenshots/jira.PNG">
 </p>
 
-## <img src="media/logotypes/Telegram.svg" title="Jira" width="5%"/> Telegram notifications using a bot
-As a result of running autotests, a config.json file is generated in the notifications/ folder. On the basis of this file a notification is generated that the bot sends (a diagram is drawn and the corresponding text is added).
-
-```mermaid
-flowchart LR
-    A(Autotests execution) -->|1| B(json file generation)
-    B -->|2| C[notification generation: diagram and text]
-    subgraph Allure notifications
-    C -->|3| D[sending a notification to the messenger]
-    end
-```
+## <img src="media/logotypes/Telegram.svg" title="Telegram" width="5%"/> Telegram notifications using a bot
+After the project build is completed, the bot created in Telegram automatically processes and sends a message with the results.
 
 <p align="center">
-<img title="Telegram" src="media/screenshots/Telegram.jpg">
-</p>
-
-*After the completion of the autotests for each of them screenshots, page source, browser console logs and a video recording of the test are available in the report.*
-
-## <img src="media/logotypes/Selenoid.svg" title="Selenoid" width="5%"/> Video example of running tests in Selenoid
-The test report is accompanied by a video in the Attachment section.
-<p align="center">
-  <img title="Selenoid Video" src="media/video/Selenoid_video.gif">
+<img title="Telegram" src="media/screenshots/telegram.PNG">
 </p>
