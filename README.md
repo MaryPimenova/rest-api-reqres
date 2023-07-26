@@ -175,4 +175,4 @@ After the project build is completed, the bot created in Telegram automatically 
 <img title="Telegram" src="media/screenshots/telegram.PNG">
 </p>
 
-[Back to content](#pretzel-table-of-contents)
+[Back to content](#-table-of-contents)
