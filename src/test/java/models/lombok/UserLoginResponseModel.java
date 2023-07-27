@@ -4,6 +4,5 @@ import lombok.Data;
 
 @Data
 public class UserLoginResponseModel {
-
-    String token, error;
+    private String token, error;
 }

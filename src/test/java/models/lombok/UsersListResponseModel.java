@@ -8,6 +8,5 @@ import java.util.LinkedList;
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class UsersListResponseModel {
-
     private LinkedList<User> data;
 }

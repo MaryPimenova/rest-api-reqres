@@ -18,6 +18,7 @@ public class Specs {
             .contentType(JSON)
             .baseUri("https://reqres.in")
             .basePath("/api");
+
     public static RequestSpecification loginRequestWithoutJsonFormatSpec = with()
             .log().uri()
             .log().body()
@@ -36,20 +37,22 @@ public class Specs {
             .log(BODY)
             .expectStatusCode(400)
             .build();
+
     public static ResponseSpecification responseWithCode204Spec = new ResponseSpecBuilder()
             .log(STATUS)
             .log(BODY)
             .expectStatusCode(204)
             .build();
+
     public static ResponseSpecification responseWithCode201Spec = new ResponseSpecBuilder()
             .log(STATUS)
             .log(BODY)
             .expectStatusCode(201)
             .build();
+
     public static ResponseSpecification responseWithCode404Spec = new ResponseSpecBuilder()
             .log(STATUS)
             .log(BODY)
             .expectStatusCode(404)
             .build();
-
 }

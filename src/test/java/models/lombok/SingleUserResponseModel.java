@@ -6,7 +6,6 @@ import lombok.Data;
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class SingleUserResponseModel {
-
     private User data;
 }
 

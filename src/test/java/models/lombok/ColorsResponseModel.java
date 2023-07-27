@@ -8,6 +8,5 @@ import java.util.LinkedList;
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ColorsResponseModel {
-
     private LinkedList<Color> data;
 }

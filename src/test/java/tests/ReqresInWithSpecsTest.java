@@ -20,11 +20,11 @@ import static constantData.ResponseData.*;
 import static constantData.ColorsData.*;
 import static constantData.IDs.*;
 
-@DisplayName("Tests of API for service Reqres.in")
 @Owner("maryPimenova")
 @Feature("API tests for reqres.in service")
 @Story("ReqresIn")
 @Tag("api")
+@DisplayName("Tests of API for service Reqres.in")
 public class ReqresInWithSpecsTest {
 
     @Test
@@ -132,7 +132,6 @@ public class ReqresInWithSpecsTest {
                         .delete("users/2")
                         .then()
                         .spec(responseWithCode204Spec));
-
     }
 
     @Test
@@ -157,7 +156,6 @@ public class ReqresInWithSpecsTest {
                 assertEquals(USER_FIRST_JOB.getValue(), patchResponse.getJob()));
         step("Check date of information updating in response", () ->
                 patchResponse.getUpdatedAt().startsWith("2023"));
-
     }
 
     @Test
@@ -206,7 +204,6 @@ public class ReqresInWithSpecsTest {
                 assertThat(createResponse.getId()).isNotNull());
         step("Check date of information creating in response", () ->
                 createResponse.getCreatedAt().startsWith("2023"));
-
     }
 
     @Test
@@ -219,7 +216,6 @@ public class ReqresInWithSpecsTest {
                         .then()
                         .spec(responseWithCode200Spec)
                         .body(matchesJsonSchemaInClasspath("schemes/users-list-response-scheme.json")));
-
     }
 
     @Test
@@ -241,7 +237,6 @@ public class ReqresInWithSpecsTest {
                 assertThat(response.getData().getFirst().getLast_name()).isEqualTo(EXPECTED_LAST_NAME_OF_FIRST_USER.getValue()));
         step("Check name of the last user in response", () ->
                 assertThat(response.getData().getLast().getLast_name()).isEqualTo(EXPECTED_LAST_NAME_OF_LAST_USER.getValue()));
-
     }
 
     @Test
@@ -291,6 +286,4 @@ public class ReqresInWithSpecsTest {
         step("Check name of the last color in response", () ->
                 assertThat(response.getData().getLast().getName()).isEqualTo(EXPECTED_NAME_OF_LAST_COLOR.getValue()));
     }
-
-
 }

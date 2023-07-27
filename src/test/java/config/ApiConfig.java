@@ -11,5 +11,4 @@ public interface ApiConfig extends Config {
     @Key("basePath")
     @DefaultValue("/api")
     String basePath();
-
 }
